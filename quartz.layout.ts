@@ -48,10 +48,16 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
-      title: "📚Contents",
+      title: "📚 Contents",
       folderClickBehavior: "link",
       folderDefaultState: "collapsed",
       useSavedState: true,
+    }),
+    Component.RecentNotes({
+      title: "📝 Recent",
+      linkToMore: "tags/",
+      limit: 3,
+      showTags: false
     }),
   ],
   right: [
@@ -70,7 +76,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.Search(),
     Component.Darkmode(),
     Component.Explorer({
-      title: "📚Contents",
+      title: "📚 Contents",
       folderClickBehavior: "link",
       folderDefaultState: "collapsed",
       useSavedState: true,
