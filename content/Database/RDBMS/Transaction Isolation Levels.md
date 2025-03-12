@@ -2,7 +2,7 @@
 tags:
   - database
   - transaction
-draft: true
+draft: false
 ---
 ## Isolation levels vs read phenomena
 |                  | Dirty read | Non-repeatable read | Phantom read |

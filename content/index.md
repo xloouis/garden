@@ -1,6 +1,7 @@
 ---
-title: Welcome
+title: Home
 ---
-
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+## 学习资料
+- [Java 全栈知识体系](https://pdai.tech/)
+- [小林coding](https://xiaolincoding.com/)
+- [JavaGuide](https://javaguide.cn/)

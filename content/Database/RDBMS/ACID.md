@@ -10,7 +10,7 @@ In [database systems](https://www.wikiwand.com/en/articles/Database_systems "Da
 ## Isolation
 [Isolation](https://www.wikiwand.com/en/articles/Isolation_\(database_systems\) "Isolation (database systems)") ensures that concurrent execution of transactions leaves the database in the same state that would have been obtained if the transactions were executed sequentially.
 ### See also
-[[content/Database/Transaction Isolation Levels|Transaction Isolation Levels]]
+[[Transaction Isolation Levels|Transaction Isolation Levels]]
 ## Durability
 Guarantees that the effects of [transactions](https://www.wikiwand.com/en/articles/Database_transaction "Database transaction") that have been committed will survive permanently, even in cases of failures, including incidents and catastrophic events.
 This usually means that completed transactions (or their effects) are recorded in [non-volatile memory](https://www.wikiwand.com/en/articles/Non-volatile_memory "Non-volatile memory").
