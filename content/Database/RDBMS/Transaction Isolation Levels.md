@@ -41,6 +41,7 @@ guarantees that any data read is committed at the moment it is read. It simply r
 ## Read uncommitted
 未提交读
 ==lowest==
-[[Read Phenomena#Dirty reads [(Write-read conflict)](https //www.wikiwand.com/en/articles/Write-read_conflict)|dirty reads]] are allowed
+
+[[Read Phenomena#Dirty reads |dirty reads]] are allowed
 ## See also
 [Isolation levels](https://www.wikiwand.com/en/articles/Isolation_(database_systems)#Isolation_levels)

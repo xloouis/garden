@@ -1,6 +1,7 @@
 ---
 tags:
   - redis
+title: 数据库/缓存一致性
 ---
 ## See Also
 - [缓存更新的套路](https://coolshell.cn/articles/17416.html)

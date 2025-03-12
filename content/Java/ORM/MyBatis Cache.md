@@ -1,6 +1,7 @@
 ---
 tags:
   - mybatis
+title: MyBatis缓存
 ---
 ## Settings
 | Setting         | Description                                                                                                                                                                                                                                                                                                                               | Valid Values         | Default |

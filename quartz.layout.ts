@@ -48,7 +48,8 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
-      folderClickBehavior: "collapse",
+      title: "📚Contents",
+      folderClickBehavior: "link",
       folderDefaultState: "collapsed",
       useSavedState: true,
     }),
@@ -69,7 +70,8 @@ export const defaultListPageLayout: PageLayout = {
     Component.Search(),
     Component.Darkmode(),
     Component.Explorer({
-      folderClickBehavior: "collapse",
+      title: "📚Contents",
+      folderClickBehavior: "link",
       folderDefaultState: "collapsed",
       useSavedState: true,
     }),
