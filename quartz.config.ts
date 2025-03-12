@@ -17,16 +17,16 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "xloouis.github.io/garden",
-    ignorePatterns: ["private", "templates", ".obsidian", "**/Clippings", "**/attachments"],
-    defaultDateType: "created",
+    ignorePatterns: ["private", "templates", ".obsidian", "**/Clippings"],
+    defaultDateType: "modified",
     generateSocialImages: true,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        header: "Geist",
+        body: "Inter",
+        code: "Jetbrains Mono",
       },
       colors: {
         lightMode: {
