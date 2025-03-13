@@ -8,4 +8,5 @@ description: home
 - [JavaGuide](https://javaguide.cn/)
 ## 算法
 - [labuladong 的算法笔记](https://labuladong.online/algo/)
+- [Hello 算法](https://www.hello-algo.com)
 - [代码随想录](https://programmercarl.com/)
