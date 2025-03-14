@@ -27,15 +27,41 @@ tags:
 - run 直接执行
 ## Thread#sleep vs Object#wait
 https://javaguide.cn/java/concurrent/java-concurrent-questions-01.html#thread-sleep-方法和-object-wait-方法对比
+## Thread.join()
+```java
+public static void main(String[] args) throws InterruptedException {
+    Thread thread1 = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Thread 1 running");
+        }
+    });
+
+    thread1.start();
+	// main 主线程等待 thread1 执行完成
+	thread1.join();
+
+    System.out.println("Main 1 running");
+}
+```
 ## Thread.sleep(0)的作用
 让线程主动释放CPU时间片, 让其他线程可以进行一次公平的争抢
+## Thread.isAlive()
+- 判断线程是否存活
+- 如果被锁, 比如 `synchronized (t)`, `t.isAlive()` 返回 `true`
 ## 线程同步的方式
 - [[synchronized]]
 - [[volatile]] 
 - [[ReentrantLock]]
-- Semaphore
-- CountDownLatch
-- CyclicBarrier
-- Phaser
+- [[Semaphore]]
+- [[CountDownLatch]]
+- [[CyclicBarrier]]
+- [Phaser](https://blog.csdn.net/liuyu973971883/article/details/107917079)
 ## See Also
-[大家都说Java有三种创建线程的方式！并发编程中的惊天骗局！](https://mp.weixin.qq.com/s/NspUsyhEmKnJ-4OprRFp9g)
+- [大家都说Java有三种创建线程的方式！并发编程中的惊天骗局！](https://mp.weixin.qq.com/s/NspUsyhEmKnJ-4OprRFp9g)
+- [不可不说的Java“锁”事](https://tech.meituan.com/2018/11/15/java-lock.html)

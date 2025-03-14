@@ -8,6 +8,8 @@ tags:
 - 互斥性
 - 阻塞性
 - 可重入性
+- 非公平锁 (不遵循先来先服务的原则)
+- 不可中断锁
 ## 实现
 两种都依赖 **对象监视器 `monitor`**
 - 基于 C++ ObjectMonitor
@@ -40,11 +42,15 @@ public class SynchronizedDemo2 {
 JDK15默认关闭, JDK18废除
 - 性能收益不明显
 - JVM 内部代码维护成本高
+## synchronized 可重入怎么实现的
+#interview 
+![[Pasted image 20250313213829.png]]
+对象的 Markword 头信息中记录了线程ID
 ## 锁升级
 [浅析synchronized锁升级的原理与实现](https://www.cnblogs.com/star95/p/17542850.html)
 
 [[lock-details.png|细化流程图]]
-![[Pasted image 20250313213829.png]]
+
 ![[Pasted image 20250313214735.png]]
 ## 锁优化
 - 自旋锁

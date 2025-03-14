@@ -3,15 +3,15 @@ draft: true
 tags:
   - java
   - hashmap
-  - juc
   - concurrent
 ---
+#todo 
 ## 线程安全
 - 1.7 使用分段锁
 	- 可以减少锁竞争，但是在高并发场景下，仍然会出现锁竞争，从而导致性能下降
 - 1.8 节点锁, "CAS+synchronized"
-	- 为空使用 CAS
-	- 不为空 synchronized
+	- 为空使用 [[CAS]] 添加新节点
+	- 不为空 [[synchronized]] 锁 Node
 	- 锁粒度更细
 ## 为什么用 [[synchronized]] 不用 [[ReentrantLock]]
 同一个hashMap中，同时去写同一个节点的概率还是很低的。所以，这种情况下，并发冲突并不高, synchronized就不会频繁的升级为重量级锁

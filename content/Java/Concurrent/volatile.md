@@ -5,6 +5,33 @@ tags:
 ---
 ## ❎ 原子性
 volatile 不是锁, 不保证原子性
+错误代码示例:
+```java
+public class Test {
+    volatile int number = 0;
+    public void increase() {
+        number++;
+    }
+
+    public static void main(String[] args) {
+        Test volatileAtomDemo = new Test();
+        for (int j = 0; j < 10; j++) {
+            new Thread(() -> {
+                for (int i = 0; i < 1000; i++) {
+                    volatileAtomDemo.increase();
+                }
+            }, String.valueOf(j)).start();
+        }
+        while (Thread.activeCount() > 2) {
+			// 暂停当前正在执行的线程，以允许其他线程获得执行机会，以此来提高并发竞争
+            Thread.yield();
+        }
+
+        System.out.println(Thread.currentThread().getName() +
+                           " final number result = " + volatileAtomDemo.number);
+    }
+}
+```
 ## ✅ 可见性
 - 对volatile变量进行写操作的时候，JVM会向处理器发送一条lock前缀的指令，将这个缓存中的变量回写到系统主存中。
 - 如果一个变量被volatile所修饰的话，在每次数据变化之后，其值都会被强制刷入主存。

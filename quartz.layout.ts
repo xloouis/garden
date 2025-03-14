@@ -53,17 +53,16 @@ export const defaultContentPageLayout: PageLayout = {
       folderDefaultState: "collapsed",
       useSavedState: true,
     }),
-    Component.DesktopOnly(
-      Component.RecentNotes({
-        title: "📝 Recent",
-        linkToMore: "tags/",
-        limit: 3,
-        showTags: false
-      })
-    ),
   ],
   right: [
-    Component.Graph(),
+    Component.Graph({
+      localGraph: {
+        showTags: false,
+      },
+      globalGraph: {
+        showTags: false,
+      },
+    }),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
