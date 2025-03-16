@@ -31,6 +31,7 @@ protected final boolean compareAndSetState(int expect, int update) {
 ```
 [[CAS]] 和 [[volatile]] 在AQS中是互补的：CAS 提供原子性操作以避免锁的使用，而 volatile 确保修改的可见性和内存操作的有序性。两者结合，使得 AQS 能够以一种高效且线程安全的方式管理同步状态。
 ### FIFO 队列 - 同步队列
+[Node 节点 waitStatus 状态含义](https://javaguide.cn/java/concurrent/aqs.html#node-%E8%8A%82%E7%82%B9-waitstatus-%E7%8A%B6%E6%80%81%E5%90%AB%E4%B9%89)
 ```java
 static final class Node {
     // 前驱和后继节点，构成双向链表

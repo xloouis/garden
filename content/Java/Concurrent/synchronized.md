@@ -44,14 +44,14 @@ JDK15默认关闭, JDK18废除
 - JVM 内部代码维护成本高
 ## synchronized 可重入怎么实现的
 #interview 
-![[Pasted image 20250313213829.png]]
+![[object-header.png]]
 对象的 Markword 头信息中记录了线程ID
 ## 锁升级
 [浅析synchronized锁升级的原理与实现](https://www.cnblogs.com/star95/p/17542850.html)
 
 [[lock-details.png|细化流程图]]
 
-![[Pasted image 20250313214735.png]]
+![[syn-lock.png]]
 ## 锁优化
 - 自旋锁
 - 适应性自旋锁
