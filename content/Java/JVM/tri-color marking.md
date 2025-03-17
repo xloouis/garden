@@ -4,8 +4,7 @@ tags:
   - java
 title: 三色标记法
 ---
-
-<iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=586333210&bvid=BV1Uz4y1S798&cid=285600430&p=1&autoplay=0" scrolling="no" border="0" width="100%" height="480" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=586333210&bvid=BV1Uz4y1S798&cid=285600430&p=1&autoplay=0" scrolling="no" border="0" width="100%" height="380" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 ![[tri-color-marking.png]]
 

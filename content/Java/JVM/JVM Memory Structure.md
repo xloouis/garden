@@ -5,9 +5,11 @@ tags:
 draft: false
 title: JVM 内存区域
 ---
-![[jvm1.7.png]]
-![[jvm1.8.png]]
-![[method area.png]]
+> [!info]- 内存区域图
+> ![[jvm1.7.png]]
+> ![[jvm1.8.png]]
+> ![[method area.png]]
+
 ## 可能出现的异常
 - 程序计数器
 	- 唯一一个不会出现 OutOfMemoryError 的内存区域
@@ -36,11 +38,13 @@ title: JVM 内存区域
 - [[CAS]]+失败重试
 - TLAB (Thread-Local Allocation Buffer)
 ## 对象的内存布局
-- 对象头 (Header)
+- [[Object Header|对象头]] (Header)
 	- 标记字段（Mark Word）
 		- 哈希码（HashCode）、GC 分代年龄、锁状态标志、线程持有的锁、偏向线程 ID、偏向时间戳等等
 	- 类型指针（Klass pointer）
-		- 对象指向它的类元数据的指针，虚拟机通过这个指针来确定这个对象是哪个类的实例。
+		- 对象指向它的类元数据的指针，虚拟机通过这个指针来确定这个对象是哪个类的实例
+	- 数组长度 (Array Length)
+		- 如果对象是一个数组，那么对象头还需要有额外的空间用于存储数组的长度
 - 实例数据（Instance Data）
 - 对齐填充（Padding）
 	- **仅仅起占位作用。** 因为 Hotspot 虚拟机的自动内存管理系统要求对象起始地址必须是 8 字节的整数倍

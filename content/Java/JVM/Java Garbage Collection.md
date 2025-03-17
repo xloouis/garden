@@ -30,20 +30,24 @@ title: JVM 垃圾回收
 
 - 漏标：一个对象本来应该是存活对象，但是没有被正确的标记上，导致被错误的垃圾回收掉了。
 - 多标：其实就是这个对象原本应该被回收掉的垃圾对象，但是被错误的标记成了存活对象。从而导致这个对象没有被GC回收掉。 这种情况还好一点，无非就是产生了一些浮动垃圾，下次GC再清理就好了。
+## 为什么分代
+分代垃圾收集可以将关注点集中在最近被分配的对象上，而无需整堆扫描，避免长命对象的拷贝，同时独立收集有助于降低响应时间。
+
+Java中的大部分对象都是朝生夕死的, 通过将不同时期的对象存储在不同的内存池中，就可以节省宝贵的时间和空间，从而改善系统的性能。
 ## 新生代对象进入老年代的情况
 - 达到默认 Age 年龄, 就进入老年代
-- 大对象直接进入老年代
+- 大对象直接进入老年代, 参数: `-XX:PretenureSizeThreshold`
 - 动态对象年龄判定
 	- 虚拟机并不是永远地要求对象的年龄必须达到 MaxTenuringThreshold 才能晋升老年代，如果在 Survivor 中相同年龄所有对象大小的总和大于 Survivor 空间的一半，则年龄大于或等于该年龄的对象可以直接进入老年代，无需等到 MaxTenuringThreshold 中要求的年龄。
 	- Hotspot 遍历所有对象时，按照年龄从小到大对其所占用的大小进行累积，当累积的某个年龄大小超过了 survivor 区的 50% 时（默认值是 50%，可以通过 `-XX:TargetSurvivorRatio=percent` 来设置，参见 [issue1199](https://github.com/Snailclimb/JavaGuide/issues/1199) ），取这个年龄和 MaxTenuringThreshold 中更小的一个值，作为新的晋升年龄阈值
 ## GC 触发条件
 - YoungGC
-	- 年轻代中的eden区分配满
+	- 年轻代中的Eden区分配满
 - FullGC
 	- 老年代空间不足  
 		- 创建一个大对象，超过指定阈值会直接保存在老年代当中，如果老年代空间也不足，会触发Full GC。  
 		- YoungGC之后，发现要移到老年代的对象，老年代存不下的时候，会触发一次FullGC
-	- [[Java Garbage Collection#空间分配担保|空间分配担保]]失败
+	-  [[Java Garbage Collection#空间分配担保|空间分配担保]]失败, 触发 FullGC
 	- 永久代空间不足 (JDK1.8之后没有)
 	- 手动执行 `System.gc()`
 		- 并不保证一定会立即触发
@@ -55,6 +59,8 @@ title: JVM 垃圾回收
 - 剩余的存活对象大小，小于Survivor区，那就直接进入Survivor区。  
 - 剩余的存活对象大小，大于Survivor区，小于老年代可用内存，那就直接去老年代。  
 - 剩余的存活对象大小，大于Survivor并且大于老年代，触发"FullGC"。
+
+![[minorgc-ensure.png]]
 ## 死亡对象判断方法
 - 引用计数法
 - 可达性分析算法
@@ -121,3 +127,5 @@ title: JVM 垃圾回收
 ## See Also
 - [JVM垃圾回收详解](https://javaguide.cn/java/jvm/jvm-garbage-collection.html)
 - [Java垃圾回收基础知识](https://pdai.tech/md/java/jvm/java-jvm-gc.html)
+- [面试官问我G1回收器怎么知道你是什么时候的垃圾?](https://www.cnblogs.com/thisiswhy/p/12388638.html)
+- [新一代垃圾回收器ZGC的探索与实践](https://tech.meituan.com/2020/08/06/new-zgc-practice-in-meituan.html)
