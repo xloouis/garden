@@ -17,7 +17,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "xloouis.github.io/garden",
-    ignorePatterns: ["private", "templates", ".obsidian", "**/Clippings"],
+    ignorePatterns: ["Excalidraw/*.excalidraw.md", "private", "templates", ".obsidian", "**/Clippings"],
     defaultDateType: "modified",
     generateSocialImages: true,
     theme: {
@@ -30,7 +30,8 @@ const config: QuartzConfig = {
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
+          //light: "#faf8f8",
+          light: "#ffffff",
           lightgray: "#e5e5e5",
           gray: "#b8b8b8",
           darkgray: "#4e4e4e",

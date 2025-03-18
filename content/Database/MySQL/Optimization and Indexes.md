@@ -1,5 +1,7 @@
 ---
 draft: true
+title: 索引和优化
+tags:
 ---
 ## 8.0 以下版本的缓存
 SQL_NO_CACHE
