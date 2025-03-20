@@ -12,10 +12,14 @@ tags:
 
 ---
 
+## 版本链
+
 一条记录的每一次更新操作产生的 undo log 格式都有一个 roll_pointer 指针和一个 trx_id 事务id：
 
 - 通过 trx_id 可以知道该记录是被哪个事务修改的；
 - 通过 roll_pointer 指针可以将这些 undo log 串成一个链表，这个链表就被称为版本链；
+- 版本链头结点为记录数据, 在聚簇索引中; 其他节点为 undo log
+    > [!info] [[MVCC#发生索引覆盖, MVCC 怎么使用?]]
 
 ![[undolog-versions.png]]
 

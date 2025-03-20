@@ -6,7 +6,7 @@ tags:
 
 ![[readview结构.drawio.png]]
 
-数据快照, 作用: 帮我们解决可见性问题, 告诉我们本次事务内应该能看到哪些快照
+作用: 帮我们解决可见性问题, 告诉我们本次事务内应该能看到哪些快照
 
 ---
 
@@ -25,9 +25,9 @@ Read View 有四个重要的字段：
 
 一个事务, 能看到的是在他开始之前就已经提交的事务的结果，而未提交的结果都是不可见的
 
-#todo 简单来说, 先找到数据记录里的 `trx_id`, 然后根据 trx_id 的单调递增性和 Read View 里记录的活跃事务id列表, 判断这条记录可不可见
-
-> [!warning] [[Row Format|数据行]] 只有[[Clustered and Secondary Indexes|聚簇索引]]能直接取到 #todo 
+> 每开启一个事务，我们都会从数据库中获得一个事务 ID，这个事务 ID 是自增长的，通过 ID 大小，我们就可以判断事务的时间顺序。
+> 
+> 简单来说, 先找到数据记录里的 `trx_id`, 然后根据 trx_id 的单调递增性和 Read View 里记录的活跃事务id列表, 判断这条记录可不可见
 
 - 可重复读/读提交级别下, 生成了 Read View
 - 查找到[[Row Format|数据行]]的 `trx_id`
@@ -40,8 +40,13 @@ Read View 有四个重要的字段：
     - `trx_id` in `m_ids`, 该事务还未提交, 不可见
     - `trx_id` not in `m_ids`, 事务已经被提交, 可见
 
-那不可见的话，undolog #todo 
+> 不可见的话, 通过 Undo Log [[Undo Log#版本链|版本链]] 找到一个可见的快照(Undo Log)
 
+---
+
+不同事务隔离级别下
+- [[InnoDB Isolation#读提交 Transaction Isolation Levels Read committed READ COMMITTED|读提交]], 每次都生成一个新的 Read View
+- [[InnoDB Isolation#可重复读 Transaction Isolation Levels Repeatable reads REPEATABLE READS|可重复读]], 只生成一个 Read View
 
 ## See Also
 

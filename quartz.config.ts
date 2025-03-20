@@ -17,13 +17,14 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "xloouis.github.io/garden",
-    ignorePatterns: ["Excalidraw/*.excalidraw.md", "private", "templates", ".obsidian", "**/Clippings"],
+    ignorePatterns: ["Excalidraw/*.md", "private", "templates", ".obsidian", "**/Clippings"],
     defaultDateType: "modified",
     generateSocialImages: true,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
+        title: "Borel",
         header: "Geist",
         body: "Inter",
         code: "Jetbrains Mono",

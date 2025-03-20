@@ -12,9 +12,10 @@ tag:
 
 ## 几个默认字段
 
-- row_id: 隐式主键, 如果什么索引都不加, 会用这个字段来创建 [[Clustered and Secondary Indexes#聚簇索引 Clustered Indexes|聚簇索引]]
-- trx_id: 对这条记录做了最新一次改动的==事务的ID==
-- roll_ptr: 回滚指针, 指向这条记录的上一个版本, 也就是上一个版本的 [[Undo Log]] 日志
+- **row_id**: 隐式主键, 如果什么索引都不加, 会用这个字段来创建 [[Clustered and Secondary Indexes#聚簇索引 Clustered Indexes|聚簇索引]]
+- **trx_id**: 对这条记录做了最新一次改动的==事务的ID==
+    > [!info] 每开启一个事务，我们都会从数据库中获得一个事务 ID，这个事务 ID 是自增长的，通过 ID 大小，我们就可以判断事务的时间顺序。
+- **roll_ptr**: 回滚指针, 指向这条记录的上一个版本, 也就是上一个版本的 [[Undo Log]] 日志
 
 ## 记录头
 

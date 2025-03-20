@@ -6,8 +6,10 @@ tags:
 [读现象](https://www.wikiwand.com/en/articles/Isolation_(database_systems)#Read_Phenomena)
 
 When a transaction retrieves data that another transaction might have updated.
-## Dirty reads [(Write-read conflict)](https://www.wikiwand.com/en/articles/Write-read_conflict)
+## Dirty reads
 _脏读_ | _无效数据的读出_ | _uncommitted dependency_
+
+[(Write-read conflict)](https://www.wikiwand.com/en/articles/Write-read_conflict)
 
 When a transaction retrieves a row that has been updated by another transaction that is not yet committed.
 ## Non-repeatable reads

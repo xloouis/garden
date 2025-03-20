@@ -12,9 +12,9 @@ title: 快照读
     ```sql
     SELECT * FROM xx_table WHERE ...
     ```
+- 即使用 [[MVCC]] 机制, 读取一个快照 ([[Undo Log]])
 
 ## See Also
 
 - [[Locking Read]]
-- [[MVCC]]
 - [Consistent Nonlocking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html)
