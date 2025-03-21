@@ -1,6 +1,6 @@
 ---
 draft: false
-title: MySQL SQL 优化
+title: SQL 优化
 tags:
   - mysql
 ---
