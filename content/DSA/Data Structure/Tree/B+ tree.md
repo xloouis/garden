@@ -1,7 +1,6 @@
 ---
 tags:
-  - dsa
-  - tree
+  - dsa/tree
 ---
 B+ 树
 
