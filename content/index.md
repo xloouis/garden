@@ -23,3 +23,7 @@ description: home
 - [Hello 算法](https://www.hello-algo.com)
 
 - [代码随想录](https://programmercarl.com/)
+
+- [OI-Wiki](https://oi-wiki.org/)
+
+- [codefun2000](https://codefun2000.com/)
