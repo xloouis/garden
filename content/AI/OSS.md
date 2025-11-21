@@ -1,0 +1,3 @@
+- https://github.com/justlovemaki/AIClient-2-API
+	- AIClient2API：模拟Gemini CLI和Kiro 客户端请求，兼容OpenAI API。可每日千次Gemini模型请求， 免费使用Kiro内置Claude模型。通过API轻松接入任何客户端，让AI开发更高效！
+- 
